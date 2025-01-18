@@ -2408,7 +2408,8 @@ std::shared_ptr<model::Composition> model::parse(char *             str,
 
     auto dotLottie = checkDotLottie(str);
     if (dotLottie) {
-        input = uncompressZip(str, length);
+        vWarning << "Input data is not Lottie format!";
+        return {};
     }
 
     LottieParserImpl obj(input, std::move(dir_path), std::move(filter));
